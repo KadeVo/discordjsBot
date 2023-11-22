@@ -1,6 +1,6 @@
 import { Client, Events, GatewayIntentBits } from 'discord.js'
 import { config } from 'dotenv'
-
+import * as test from './commands/testcommand.js'
 config()
 const client = new Client({ intents: [GatewayIntentBits.Guilds] })
 
