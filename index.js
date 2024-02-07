@@ -16,14 +16,23 @@ function readyDiscord() {
 async function handleCommand(interaction) {
   try {
     if (!interaction.isCommand()) return
-    if (interaction.commandName === 'test') {
-      await test.execute(interaction)
-    } else if (interaction.commandName === 'question') {
-      await question.execute(interaction)
-    } else if (interaction.commandName === 'help') {
-      await help.execute(interaction)
-    } else if (interaction.commandName === 'coinflip') {
-      await coinflip.execute(interaction)
+
+    switch (interaction.commandName) {
+      case 'test':
+        await test.execute(interaction)
+        break
+      case 'question':
+        await question.execute(interaction)
+        break
+      case 'help':
+        await help.execute(interaction)
+        break
+      case 'coinflip':
+        await coinflip.execute(interaction)
+        break
+      default:
+        await interaction.reply('Error')
+        break
     }
   } catch (error) {
     console.error(error)
