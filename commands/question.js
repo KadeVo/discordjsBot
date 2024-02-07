@@ -17,10 +17,13 @@ export const data = new SlashCommandBuilder()
   )
 
 export async function execute(interaction) {
-  //Need an input for the user to ask the question
-  // Enter question
-  // Enter Option amount
-  // Enter Option value
-  // If null return Null
-  // Enter correct Answer
+  const question = interaction.options.getString('question')
+  const options = interaction.options.getString('options').split(',')
+
+  // Send a message with the question and options
+  await interaction.reply(
+    `You've set up the following question:\nQuestion: ${question}\nOptions: ${options.join(
+      ', '
+    )}`
+  )
 }
