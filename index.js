@@ -3,6 +3,7 @@ import { config } from 'dotenv'
 import * as test from './commands/testcommand.js'
 import * as question from './commands/question.js'
 import * as help from './commands/help.js'
+import * as coinflip from './commands/coinflip.js'
 config()
 const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
@@ -21,6 +22,8 @@ async function handleCommand(interaction) {
       await question.execute(interaction)
     } else if (interaction.commandName === 'help') {
       await help.execute(interaction)
+    } else if (interaction.commandName === 'coinflip') {
+      await coinflip.execute(interaction)
     }
   } catch (error) {
     console.error(error)
