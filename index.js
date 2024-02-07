@@ -2,13 +2,14 @@ import { Client, Events, GatewayIntentBits } from 'discord.js'
 import { config } from 'dotenv'
 import * as test from './commands/testcommand.js'
 import * as question from './commands/question.js'
+import * as help from './commands/help.js'
 config()
 const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
 })
 
 function readyDiscord() {
-  console.log('Up and running ' + client.user.tag)
+  console.log('Up, running and ready to serve ' + client.user.tag)
 }
 
 async function handleCommand(interaction) {
@@ -18,6 +19,8 @@ async function handleCommand(interaction) {
       await test.execute(interaction)
     } else if (interaction.commandName === 'question') {
       await question.execute(interaction)
+    } else if (interaction.commandName === 'help') {
+      await help.execute(interaction)
     }
   } catch (error) {
     console.error(error)
