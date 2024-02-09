@@ -31,7 +31,7 @@ async function handleCommand(interaction) {
       case 'coinflip':
         await coinflip.execute(interaction)
         break
-      case 'roll':
+      case 'diceroll':
         await diceroll.execute(interaction)
         break
       default:
