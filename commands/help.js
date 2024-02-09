@@ -6,6 +6,6 @@ export const data = new SlashCommandBuilder()
 
 export async function execute(interaction) {
   await interaction.reply(
-    `We only have 1 command right now, and that's coinflip!`
+    `/diceroll (enter your max number), /coinflip, /question (enter your question) (enter your options)`
   )
 }
