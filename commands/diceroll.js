@@ -3,11 +3,16 @@ import { SlashCommandBuilder } from 'discord.js'
 export const data = new SlashCommandBuilder()
   .setName('diceroll')
   .setDescription('Roll a dice')
-  .addStringOption((option) =>
+  .addIntegerOption((option) =>
     option
       .setName('sideddice')
       .setDescription('Enter max number on the dice')
       .setRequired(true)
   )
 
-export async function execute(interaction) {}
+export async function execute(interaction) {
+  const sideddice = interaction.options.getInteger('sideddice')
+
+  const result = Math.floor(Math.random() * sideddice)
+  await interaction.reply(`It's ${result}!`)
+}
