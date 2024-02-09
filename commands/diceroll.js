@@ -13,6 +13,6 @@ export const data = new SlashCommandBuilder()
 export async function execute(interaction) {
   const sideddice = interaction.options.getInteger('sideddice')
 
-  const result = Math.floor(Math.random() * sideddice)
+  const result = Math.floor(Math.random() * sideddice + 1)
   await interaction.reply(`It's ${result}!`)
 }

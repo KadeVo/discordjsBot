@@ -4,6 +4,7 @@ import * as test from './commands/testcommand.js'
 import * as question from './commands/question.js'
 import * as help from './commands/help.js'
 import * as coinflip from './commands/coinflip.js'
+import * as diceroll from './commands/diceroll.js'
 config()
 const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
@@ -29,6 +30,9 @@ async function handleCommand(interaction) {
         break
       case 'coinflip':
         await coinflip.execute(interaction)
+        break
+      case 'roll':
+        await diceroll.execute(interaction)
         break
       default:
         await interaction.reply('Error')
